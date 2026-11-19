@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laporan Hasil Tryout UABN-MDT | Madrasah Hikamus Salafiyah</title>
+  <meta name="description" content="Portal Laporan Hasil Tryout Ujian Akhir Berbasis Nasional – Madrasah Diniyah Takmiliyah (UABN-MDT) Madrasah Hikamus Salafiyah Tahun Pelajaran 1447/1448 H (2026/2027 M)." />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & VARIABEL WARNA
+       ========================================================================== */
+    :root {
+      --emerald-dark: #064e3b;
+      --emerald-primary: #065f46;
+      --emerald-mid: #047857;
+      --emerald-soft: #ecfdf5;
+      --emerald-border: #a7f3d0;
+
+      --pass-text: #15803d;
+      --pass-bg: #dcfce7;
+      --pass-border: #86efac;
+
+      --fail-text: #b91c1c;
+      --fail-bg: #fee2e2;
+      --fail-border: #fca5a5;
+
+      --warn-text: #92400e;
+      --warn-bg: #fef3c7;
+      --warn-border: #fcd34d;
+
+      --cream-bg: #fdfbf7;
+      --cream-border: #e7e0d2;
+
+      --bg-page: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --border-strong: #cbd5e1;
+
+      --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.07);
+      --radius-md: 0.625rem;
+      --radius-lg: 0.875rem;
+      --radius-xl: 1rem;
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES (MOBILE-FIRST)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-page);
+      overflow-x: hidden;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       3. HEADER HALAMAN UTAMA (BERSIH TANPA LOGO)
+       ========================================================================== */
+    .site-header {
+      background-color: var(--emerald-dark);
+      color: #ffffff;
+      padding: 1.5rem 1rem;
+      border-bottom: 3px solid #d97706;
+    }
+
+    .header-container {
+      max-width: 840px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+      color: #ffffff;
+    }
+
+    .header-sub-org {
+      margin-top: 0.45rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #ecfdf5;
+    }
+
+    .header-sub-org .mdt-name {
+      display: block;
+      font-weight: 500;
+      color: #d1fae5;
+    }
+
+    .header-sub-org .madrasah-name {
+      display: block;
+      font-weight: 700;
+      font-size: 1.025rem;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+
+    .header-year {
+      display: inline-block;
+      margin-top: 0.55rem;
+      padding: 0.22rem 0.85rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #fef3c7;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(253, 230, 138, 0.35);
+      border-radius: 9999px;
+    }
+
+    /* ==========================================================================
+       4. LAYOUT UTAMA & CARD
+       ========================================================================== */
+    .main-wrapper {
+      flex: 1;
+      width: 100%;
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 2.75rem;
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       5. KARTU PENCARIAN PESERTA (FOKUS HALAMAN UTAMA)
+       ========================================================================== */
+    .search-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+    .search-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+    }
+
+    .search-desc {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+      margin-bottom: 1.05rem;
+    }
+
+    .search-form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text-main);
+      background-color: #ffffff;
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      border-color: var(--emerald-primary);
+      box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.14);
+    }
+
+    .search-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 48px;
+      padding: 0.65rem 1.2rem;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background-color: var(--emerald-primary);
+      color: #ffffff;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--emerald-dark);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: var(--text-secondary);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+    }
+
+    .btn-print {
+      background-color: var(--emerald-dark);
+      color: #ffffff;
+      border-color: var(--emerald-dark);
+    }
+
+    .btn-print:hover {
+      background-color: #022c22;
+    }
+
+    /* Daftar Pilihan Nama Saat Ditemukan Beberapa Nama Mirip */
+    .matches-container {
+      margin-top: 1rem;
+      background-color: #ffffff;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .matches-header {
+      padding: 0.6rem 0.95rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--emerald-dark);
+      background-color: var(--emerald-soft);
+      border-bottom: 1px solid var(--emerald-border);
+    }
+
+    .matches-list {
+      list-style: none;
+      max-height: 290px;
+      overflow-y: auto;
+    }
+
+    .match-item + .match-item {
+      border-top: 1px solid var(--border-color);
+    }
+
+    .match-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      background: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.975rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      min-height: 48px;
+    }
+
+    .match-btn:hover,
+    .match-btn:focus {
+      background-color: var(--emerald-soft);
+      color: var(--emerald-dark);
+      outline: none;
+    }
+
+    .match-action-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--emerald-mid);
+      white-space: nowrap;
+    }
+
+    /* Pesan Status Pencarian */
+    .message-box {
+      margin-top: 0.95rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9125rem;
+      line-height: 1.45;
+    }
+
+    .message-info {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+
+    .message-error {
+      background-color: var(--fail-bg);
+      border: 1px solid var(--fail-border);
+      color: var(--fail-text);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       6. HALAMAN LAPORAN HASIL NILAI PESERTA
+       ========================================================================== */
+    .report-card-main {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* A. Identitas Laporan */
+    .report-doc-header {
+      text-align: center;
+      padding-bottom: 1.1rem;
+      margin-bottom: 1.15rem;
+      border-bottom: 1.5px solid var(--border-color);
+    }
+
+    .report-doc-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--emerald-dark);
+    }
+
+    .report-doc-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+      line-height: 1.45;
+    }
+
+    .report-doc-subtitle strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* B. Identitas Peserta */
+    .student-identity-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--emerald-primary);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .identity-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .identity-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+    }
+
+    .student-name-display {
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-top: 0.1rem;
+      word-break: break-word;
+    }
+
+    .student-desc-display {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--emerald-primary);
+      margin-top: 0.1rem;
+    }
+
+    /* C. Tabel Nilai 7 Mata Pelajaran */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background-color: #ffffff;
+    }
+
+    .scores-table {
+      width: 100%;
+      min-width: 460px;
+      border-collapse: collapse;
+    }
+
+    .scores-table thead {
+      background-color: var(--emerald-dark);
+      color: #ffffff;
+    }
+
+    .scores-table thead th {
+      padding: 0.85rem 0.9rem;
+      font-size: 0.825rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .scores-table thead th.col-nomor {
+      width: 4.25rem;
+      text-align: center;
+    }
+
+    .scores-table thead th.col-nilai {
+      width: 7.5rem;
+      text-align: right;
+    }
+
+    .scores-table thead th.col-rata-mapel {
+      width: 11.5rem;
+      text-align: right;
+    }
+
+    .scores-table tbody tr:nth-child(even) {
+      background-color: var(--bg-surface);
+    }
+
+    .scores-table tbody tr + tr td {
+      border-top: 1px solid var(--border-color);
+    }
+
+    .scores-table tbody td {
+      padding: 0.9rem 0.9rem;
+      vertical-align: middle;
+    }
+
+    .cell-nomor {
+      text-align: center;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cell-mapel {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .cell-nilai {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .score-num-bold {
+      font-size: 1.1875rem;
+      font-weight: 800;
+    }
+
+    .score-empty-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .cell-rata-mapel {
+      text-align: right;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Pewarnaan Nilai Sesuai Batas Minimal 57,5 */
+    .val-pass {
+      color: var(--pass-text);
+    }
+
+    .val-fail {
+      color: var(--fail-text);
+    }
+
+    /* Legenda Warna Nilai */
+    .table-legend-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem 1.25rem;
+      margin-top: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+
+    /* D. Kartu Rata-Rata Nilai Peserta */
+    .average-summary-card {
+      margin-top: 1.4rem;
+      padding: 1.4rem 1.15rem;
+      border-radius: var(--radius-lg);
+      background-color: var(--bg-surface);
+      border: 1.5px solid var(--border-strong);
+      text-align: center;
+    }
+
+    .average-summary-card.status-pass-box {
+      background-color: #f0fdf4;
+      border-color: var(--pass-border);
+    }
+
+    .average-summary-card.status-fail-box {
+      background-color: #fef2f2;
+      border-color: var(--fail-border);
+    }
+
+    .average-summary-card.status-incomplete-box {
+      background-color: #fffbeb;
+      border-color: var(--warn-border);
+    }
+
+    .avg-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .avg-big-number {
+      font-size: 2.65rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0.45rem 0 0.65rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .avg-big-number.num-pass {
+      color: var(--pass-text);
+    }
+
+    .avg-big-number.num-fail {
+      color: var(--fail-text);
+    }
+
+    .avg-big-number.num-incomplete {
+      color: var(--warn-text);
+      font-size: 1.65rem;
+    }
+
+    .avg-status-badge {
+      display: inline-block;
+      padding: 0.45rem 1.05rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      line-height: 1.35;
+    }
+
+    .badge-pass {
+      background-color: var(--pass-bg);
+      color: var(--pass-text);
+      border: 1px solid var(--pass-border);
+    }
+
+    .badge-fail {
+      background-color: var(--fail-bg);
+      color: var(--fail-text);
+      border: 1px solid var(--fail-border);
+    }
+
+    .badge-incomplete {
+      background-color: var(--warn-bg);
+      color: var(--warn-text);
+      border: 1px solid var(--warn-border);
+    }
+
+    .avg-kkm-note {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .avg-incomplete-detail {
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+      color: var(--warn-text);
+    }
+
+    /* E. Kartu Kata-Kata Motivasi */
+    .motivation-card {
+      background-color: var(--cream-bg);
+      border: 1px solid var(--cream-border);
+      border-left: 4px solid var(--emerald-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem 1.25rem;
+      margin-top: 1.4rem;
+    }
+
+    .motivation-quote {
+      font-size: 0.975rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .motivation-source {
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--emerald-primary);
+    }
+
+    /* F. Peringkat 10 Besar (Hanya di Bagian Bawah Laporan) */
+    .top10-section {
+      margin-top: 1.4rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+    }
+
+    .top10-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--emerald-dark);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.8rem;
+    }
+
+    .top10-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .rank-mini-card {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    /* Aksen Emas, Perak, Perunggu untuk Peringkat 1-3 */
+    .rank-mini-card.rank-1 {
+      background-color: #fffbeb;
+      border-color: #f59e0b;
+    }
+
+    .rank-mini-card.rank-2 {
+      background-color: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .rank-mini-card.rank-3 {
+      background-color: #fff7ed;
+      border-color: #d97706;
+    }
+
+    .rank-mini-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    .rank-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.35rem;
+      background-color: #f1f5f9;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rank-1 .rank-badge {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .rank-2 .rank-badge {
+      background-color: #e2e8f0;
+      color: #334155;
+    }
+
+    .rank-3 .rank-badge {
+      background-color: #ffedd5;
+      color: #9a3412;
+    }
+
+    .rank-mini-score {
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: var(--emerald-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rank-mini-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.3;
+      word-break: break-word;
+    }
+
+    /* G. Tombol Aksi di Bagian Bawah Laporan */
+    .report-bottom-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1.5rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .report-bottom-actions .btn {
+      width: 100%;
+    }
+
+    /* Keterangan Cetak Resmi (Hanya muncul saat print) */
+    .print-footer-note {
+      display: none;
+    }
+
+    /* ==========================================================================
+       7. FOOTER HALAMAN UTAMA
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 1.15rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       8. RESPONSIVE BREAKPOINTS (TABLET & DESKTOP)
+       ========================================================================== */
+    @media (min-width: 600px) {
+      .site-header {
+        padding: 1.75rem 1.5rem;
+      }
+
+      .header-title {
+        font-size: 1.55rem;
+      }
+
+      .main-wrapper {
+        padding: 2rem 1.5rem 3rem;
+      }
+
+      .card {
+        padding: 1.75rem;
+      }
+
+      .search-form-row {
+        flex-direction: row;
+        align-items: stretch;
+      }
+
+      .btn-primary {
+        flex: 0 0 auto;
+        padding: 0 1.4rem;
+      }
+
+      .identity-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .student-name-display {
+        font-size: 1.55rem;
+      }
+
+      .top10-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .report-bottom-actions {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .report-bottom-actions .btn {
+        width: auto;
+        min-width: 185px;
+      }
+    }
+
+    @media (min-width: 820px) {
+      .top10-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    /* ==========================================================================
+       9. ATURAN CETAK (@media print)
+       ========================================================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 10.5pt;
+      }
+
+      .no-print,
+      .site-header,
+      .site-footer,
+      #search-card {
+        display: none !important;
+      }
+
+      .main-wrapper {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .report-card-main {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+
+      .report-doc-header {
+        border-bottom: 2px solid #000000 !important;
+        padding-bottom: 0.65rem !important;
+        margin-bottom: 0.85rem !important;
+      }
+
+      .report-doc-title,
+      .report-doc-subtitle,
+      .report-doc-subtitle strong {
+        color: #000000 !important;
+      }
+
+      .student-identity-box {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        border-left: 4px solid #000000 !important;
+        padding: 0.65rem 0.9rem !important;
+        margin-bottom: 0.85rem !important;
+      }
+
+      .identity-label,
+      .student-name-display,
+      .student-desc-display {
+        color: #000000 !important;
+      }
+
+      .table-wrapper {
+        overflow: visible !important;
+        border: 1px solid #000000 !important;
+      }
+
+      .scores-table {
+        min-width: 100% !important;
+      }
+
+      .scores-table thead {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+      }
+
+      .scores-table thead th {
+        color: #000000 !important;
+        border-bottom: 1px solid #000000 !important;
+        padding: 0.45rem 0.65rem !important;
+      }
+
+      .scores-table tbody tr:nth-child(even) {
+        background: #ffffff !important;
+      }
+
+      .scores-table tbody td {
+        padding: 0.45rem 0.65rem !important;
+        border-top: 1px solid #cbd5e1 !important;
+      }
+
+      .table-legend-box {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        padding: 0.45rem 0.65rem !important;
+        margin-top: 0.5rem !important;
+      }
+
+      .average-summary-card {
+        background: #ffffff !important;
+        border: 1.5px solid #000000 !important;
+        padding: 0.85rem !important;
+        margin-top: 0.85rem !important;
+        page-break-inside: avoid;
+      }
+
+      .avg-status-badge {
+        border: 1px solid #000000 !important;
+      }
+
+      .motivation-card {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        border-left: 3px solid #000000 !important;
+        padding: 0.65rem 0.9rem !important;
+        margin-top: 0.85rem !important;
+        page-break-inside: avoid;
+      }
+
+      .motivation-quote,
+      .motivation-source {
+        color: #000000 !important;
+      }
+
+      .top10-section {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        padding: 0.7rem !important;
+        margin-top: 0.85rem !important;
+        page-break-inside: avoid;
+      }
+
+      .top10-title,
+      .rank-mini-name,
+      .rank-mini-score {
+        color: #000000 !important;
+      }
+
+      .top10-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+        gap: 0.35rem !important;
+      }
+
+      .rank-mini-card {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        padding: 0.35rem 0.45rem !important;
+      }
+
+      .rank-badge {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+      }
+
+      .print-footer-note {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 1.1rem;
+        font-size: 9pt;
+        color: #000000 !important;
+        page-break-inside: avoid;
+      }
+
+      .print-sign-box {
+        text-align: center;
+      }
+
+      .print-sign-space {
+        height: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================================
+       1. HEADER HALAMAN UTAMA
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="header-container">
+      <h1 class="header-title">LAPORAN HASIL TRYOUT UABN-MDT</h1>
+      <div class="header-sub-org">
+        <span class="mdt-name">Madrasah Diniyah Takmiliyah</span>
+        <span class="madrasah-name">Madrasah Hikamus Salafiyah</span>
+      </div>
+      <span class="header-year">Tahun Pelajaran 1447/1448 H (2026/2027 M)</span>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       2. KONTEN UTAMA
+       ====================================================================== -->
+  <main class="main-wrapper">
+
+    <!-- A. KARTU PENCARIAN PESERTA (SATU-SATUNYA KARTU PADA HALAMAN UTAMA) -->
+    <section id="search-card" class="card search-card" aria-labelledby="search-heading">
+      <h2 id="search-heading" class="search-title">Cari Hasil Nilai Peserta</h2>
+      <p class="search-desc">Masukkan nama peserta untuk melihat hasil nilai tryout.</p>
+
+      <form id="search-form" class="search-form-row" novalidate>
+        <div class="search-input-wrap">
+          <input
+            type="search"
+            id="student-search-input"
+            class="search-input"
+            placeholder="Masukkan nama peserta..."
+            autocomplete="off"
+            aria-label="Masukkan nama peserta"
+          />
+        </div>
+        <div class="search-actions">
+          <button type="submit" id="search-submit-btn" class="btn btn-primary">Cari Nilai</button>
+          <button type="button" id="search-reset-btn" class="btn btn-secondary">Hapus</button>
+        </div>
+      </form>
+
+      <!-- Daftar Pilihan Nama Jika Ditemukan Beberapa Nama Mirip -->
+      <div id="matches-container" class="matches-container hidden" aria-live="polite">
+        <div id="matches-header" class="matches-header">Ditemukan beberapa nama peserta. Silakan pilih peserta yang benar:</div>
+        <ul id="matches-list" class="matches-list"></ul>
+      </div>
+
+      <!-- Pesan Peringatan / Nama Tidak Ditemukan -->
+      <div id="search-message" class="message-box hidden" role="alert"></div>
+    </section>
+
+    <!-- B. HALAMAN LAPORAN HASIL NILAI PESERTA (MUNCUL SETELAH PESERTA DIPILIH) -->
+    <section id="report-card" class="card report-card-main hidden" aria-labelledby="report-student-name">
+
+      <!-- 1. Identitas Laporan -->
+      <div class="report-doc-header">
+        <h2 class="report-doc-title">HASIL NILAI TRYOUT UABN-MDT</h2>
+        <div class="report-doc-subtitle">
+          <strong>Madrasah Hikamus Salafiyah</strong><br />
+          Tahun Pelajaran 1447/1448 H (2026/2027 M)
+        </div>
+      </div>
+
+      <!-- 2. Identitas Peserta -->
+      <div class="student-identity-box">
+        <div class="identity-row">
+          <div>
+            <div class="identity-label">Nama Peserta</div>
+            <h3 id="report-student-name" class="student-name-display">-</h3>
+          </div>
+          <div>
+            <div class="identity-label">Keterangan</div>
+            <div class="student-desc-display">Hasil Nilai Tryout UABN-MDT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Tabel Nilai 7 Mata Pelajaran -->
+      <div class="table-wrapper">
+        <table class="scores-table">
+          <thead>
+            <tr>
+              <th class="col-nomor">Nomor</th>
+              <th>Mata Pelajaran</th>
+              <th class="col-nilai">Nilai Tryout</th>
+              <th class="col-rata-mapel">Rata-rata Nilai</th>
+            </tr>
+          </thead>
+          <tbody id="scores-tbody">
+            <!-- Diisi otomatis oleh JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Legenda Warna Nilai -->
+      <div class="table-legend-box">
+        <span class="legend-item">🟢 Hijau = Memenuhi batas minimal kelulusan (&ge; 57,5)</span>
+        <span class="legend-item">🔴 Merah = Di bawah batas minimal kelulusan (&lt; 57,5)</span>
+      </div>
+
+      <!-- 4. Rata-Rata Nilai Peserta -->
+      <div id="average-summary-box" class="average-summary-card">
+        <div class="avg-title">RATA-RATA NILAI PESERTA</div>
+        <div id="report-student-avg" class="avg-big-number">-</div>
+        <div>
+          <span id="report-status-badge" class="avg-status-badge">-</span>
+        </div>
+        <p class="avg-kkm-note">Batas Minimal Kelulusan: 57,5</p>
+        <p id="report-incomplete-note" class="avg-incomplete-detail hidden"></p>
+      </div>
+
+      <!-- 5. Kartu Kata-Kata Motivasi -->
+      <div id="motivation-section" class="motivation-card" aria-label="Motivasi Belajar">
+        <blockquote id="motivation-text" class="motivation-quote">
+          "Barang siapa menempuh jalan untuk mencari ilmu, Allah akan mudahkan baginya jalan menuju surga."
+        </blockquote>
+        <div id="motivation-source" class="motivation-source">— HR. Muslim</div>
+      </div>
+
+      <!-- 6. Peringkat 10 Besar (Bagian Paling Bawah Laporan Sebelum Tombol Aksi) -->
+      <div id="top10-section" class="top10-section" aria-labelledby="top10-heading">
+        <h3 id="top10-heading" class="top10-title">10 PESERTA DENGAN NILAI RATA-RATA TERTINGGI</h3>
+        <div id="top10-grid" class="top10-grid">
+          <!-- Diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+
+      <!-- 7. Tombol Aksi -->
+      <div class="report-bottom-actions no-print">
+        <button type="button" id="print-btn" class="btn btn-print">
+          Cetak Laporan
+        </button>
+        <button type="button" id="reset-btn" class="btn btn-secondary">
+          Cari Peserta Lain
+        </button>
+      </div>
+
+      <!-- Keterangan Cetak Resmi -->
+      <div class="print-footer-note">
+        <div>
+          <p>Dicetak pada: <span id="print-date"></span></p>
+          <p>Ujian Akhir Berbasis Nasional – Madrasah Diniyah Takmiliyah</p>
+        </div>
+        <div class="print-sign-box">
+          <p>Mengetahui,</p>
+          <p><strong>Madrasah Hikamus Salafiyah</strong></p>
+          <div class="print-sign-space"></div>
+          <p>__________________________</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       3. FOOTER HALAMAN UTAMA
+       ====================================================================== -->
+  <footer class="site-footer">
+    &copy; 2026 Madrasah Hikamus Salafiyah
+  </footer>
+
+  <!-- ======================================================================
+       4. DATABASE ASLI & LOGIKA APLIKASI (VANILLA JAVASCRIPT)
+       ====================================================================== -->
+  <script>
+    (function () {
+      "use strict";
+
+      // Batas minimal kelulusan resmi
+      const KKM_THRESHOLD = 57.5;
+
+      // Urutan dan nama 7 mata pelajaran sesuai database spreadsheet asli
+      const SUBJECT_LIST = [
+        { key: "AL QURAN", label: "AL QURAN" },
+        { key: "HADITS", label: "HADITS" },
+        { key: "AQIDAH", label: "AQIDAH" },
+        { key: "AKHLAQ", label: "AKHLAQ" },
+        { key: "FIQIH", label: "FIQIH" },
+        { key: "TARIKH", label: "TARIKH" },
+        { key: "B. ARAB", label: "B. ARAB" }
+      ];
+
+      // Kumpulan kutipan motivasi pendidikan Islam yang terverifikasi & aman
+      const MOTIVATION_QUOTES = [
+        {
+          quote: "\"Barang siapa menempuh jalan untuk mencari ilmu, Allah akan mudahkan baginya jalan menuju surga.\"",
+          source: "— HR. Muslim"
+        },
+        {
+          quote: "\"Jangan pernah berhenti belajar. Nilai hari ini bukan akhir dari perjalanan, melainkan bekal untuk menjadi lebih baik di masa depan.\"",
+          source: ""
+        },
+        {
+          quote: "\"Teruslah berusaha, karena ilmu yang bermanfaat akan menjadi cahaya dalam kehidupan.\"",
+          source: ""
+        }
+      ];
+
+      // Database asli lengkap 25 peserta dari spreadsheet: HASIL TRY OUT UABN TP. 1447 - 1448 (Sheet: SKOR TRY OUT)
+      // Nilai kosong dipertahankan sebagai null (tidak diubah menjadi 0)
+      const RAW_DATABASE = [
+        {
+          nama: "DAFFA PRADITYA",
+          rataRata: 28.3,
+          nilai: { "AL QURAN": 35, "HADITS": 10, "AQIDAH": 55, "AKHLAQ": 20, "FIQIH": 25, "TARIKH": 25, "B. ARAB": null }
+        },
+        {
+          nama: "HABIBIE AHSAN ASH SHIDDIQ",
+          rataRata: 31.4,
+          nilai: { "AL QURAN": 35, "HADITS": 25, "AQIDAH": 50, "AKHLAQ": 10, "FIQIH": 25, "TARIKH": 45, "B. ARAB": 30 }
+        },
+        {
+          nama: "MUHAMMAD FAJAR PRADANA",
+          rataRata: 35.0,
+          nilai: { "AL QURAN": 25, "HADITS": 30, "AQIDAH": 50, "AKHLAQ": 30, "FIQIH": 30, "TARIKH": 45, "B. ARAB": null }
+        },
+        {
+          nama: "MUHAMMAD SA'ID RAMADHANI",
+          rataRata: 38.6,
+          nilai: { "AL QURAN": 50, "HADITS": 40, "AQIDAH": 50, "AKHLAQ": 20, "FIQIH": 25, "TARIKH": 50, "B. ARAB": 35 }
+        },
+        {
+          nama: "NASHWAN RAFA ALFARIZQI",
+          rataRata: 39.3,
+          nilai: { "AL QURAN": 50, "HADITS": 40, "AQIDAH": 50, "AKHLAQ": 35, "FIQIH": 25, "TARIKH": 40, "B. ARAB": 35 }
+        },
+        {
+          nama: "AFAREEN SHAUFA ZAHIDA",
+          rataRata: 50.0,
+          nilai: { "AL QURAN": 50, "HADITS": 55, "AQIDAH": 45, "AKHLAQ": 35, "FIQIH": 60, "TARIKH": 55, "B. ARAB": 50 }
+        },
+        {
+          nama: "DEVI APRILIA PUTRI",
+          rataRata: 31.4,
+          nilai: { "AL QURAN": 50, "HADITS": 20, "AQIDAH": 35, "AKHLAQ": 15, "FIQIH": 20, "TARIKH": 30, "B. ARAB": 50 }
+        },
+        {
+          nama: "ELA AYU FADILAH",
+          rataRata: 45.0,
+          nilai: { "AL QURAN": 40, "HADITS": 35, "AQIDAH": 45, "AKHLAQ": 40, "FIQIH": 65, "TARIKH": 40, "B. ARAB": 50 }
+        },
+        {
+          nama: "NADYA SALMA MALEENA",
+          rataRata: 74.3,
+          nilai: { "AL QURAN": 80, "HADITS": 85, "AQIDAH": 70, "AKHLAQ": 65, "FIQIH": 80, "TARIKH": 55, "B. ARAB": 85 }
+        },
+        {
+          nama: "NAILA MUAZARA ULFA",
+          rataRata: 60.7,
+          nilai: { "AL QURAN": 75, "HADITS": 65, "AQIDAH": 75, "AKHLAQ": 45, "FIQIH": 50, "TARIKH": 45, "B. ARAB": 70 }
+        },
+        {
+          nama: "RUMAISHA ALYA ZAFIRAH",
+          rataRata: 50.7,
+          nilai: { "AL QURAN": 50, "HADITS": 60, "AQIDAH": 50, "AKHLAQ": 60, "FIQIH": 50, "TARIKH": 40, "B. ARAB": 45 }
+        },
+        {
+          nama: "SYAKIRA AISHA MAULIDA",
+          rataRata: 55.0,
+          nilai: { "AL QURAN": 60, "HADITS": 55, "AQIDAH": 45, "AKHLAQ": 60, "FIQIH": 70, "TARIKH": 25, "B. ARAB": 70 }
+        },
+        {
+          nama: "AZZAM LILMUTTAQINA IMAMAN",
+          rataRata: 65.0,
+          nilai: { "AL QURAN": 90, "HADITS": 50, "AQIDAH": 60, "AKHLAQ": 55, "FIQIH": 60, "TARIKH": 60, "B. ARAB": 80 }
+        },
+        {
+          nama: "MAHRUS HISYAM",
+          rataRata: 51.4,
+          nilai: { "AL QURAN": 45, "HADITS": 45, "AQIDAH": 75, "AKHLAQ": 25, "FIQIH": 55, "TARIKH": 50, "B. ARAB": 65 }
+        },
+        {
+          nama: "MUHAMMAD FATHI AMMAR",
+          rataRata: 0.0,
+          nilai: { "AL QURAN": null, "HADITS": null, "AQIDAH": null, "AKHLAQ": null, "FIQIH": null, "TARIKH": null, "B. ARAB": null }
+        },
+        {
+          nama: "MUHAMMAD ISTIGHFAR MAULANA",
+          rataRata: 44.3,
+          nilai: { "AL QURAN": 75, "HADITS": 20, "AQIDAH": 60, "AKHLAQ": 35, "FIQIH": 30, "TARIKH": 30, "B. ARAB": 60 }
+        },
+        {
+          nama: "NAUFAL ARMIA SETIADI",
+          rataRata: 40.0,
+          nilai: { "AL QURAN": 55, "HADITS": 25, "AQIDAH": 60, "AKHLAQ": 50, "FIQIH": 20, "TARIKH": 25, "B. ARAB": 45 }
+        },
+        {
+          nama: "AMANDA KARUNIA MAULIDA",
+          rataRata: 48.6,
+          nilai: { "AL QURAN": 55, "HADITS": 40, "AQIDAH": 35, "AKHLAQ": 35, "FIQIH": 60, "TARIKH": 40, "B. ARAB": 75 }
+        },
+        {
+          nama: "ANINDYA KARIMA PUTRI",
+          rataRata: 62.9,
+          nilai: { "AL QURAN": 60, "HADITS": 45, "AQIDAH": 55, "AKHLAQ": 60, "FIQIH": 85, "TARIKH": 45, "B. ARAB": 90 }
+        },
+        {
+          nama: "AQILATUZ ZAHRA",
+          rataRata: 57.1,
+          nilai: { "AL QURAN": 35, "HADITS": 40, "AQIDAH": 55, "AKHLAQ": 55, "FIQIH": 85, "TARIKH": 65, "B. ARAB": 65 }
+        },
+        {
+          nama: "ASHILA ANINDA AYUNINGTYAS",
+          rataRata: 47.1,
+          nilai: { "AL QURAN": 55, "HADITS": 45, "AQIDAH": 75, "AKHLAQ": 30, "FIQIH": 35, "TARIKH": 25, "B. ARAB": 65 }
+        },
+        {
+          nama: "IFTITAH AZKA ILMIATI",
+          rataRata: 71.4,
+          nilai: { "AL QURAN": 85, "HADITS": 75, "AQIDAH": 70, "AKHLAQ": 45, "FIQIH": 85, "TARIKH": 50, "B. ARAB": 90 }
+        },
+        {
+          nama: "NAJWA AULIA RISQI",
+          rataRata: 50.7,
+          nilai: { "AL QURAN": 50, "HADITS": 50, "AQIDAH": 45, "AKHLAQ": 40, "FIQIH": 55, "TARIKH": 50, "B. ARAB": 65 }
+        },
+        {
+          nama: "QUINA ZALFA CALISTA",
+          rataRata: 62.1,
+          nilai: { "AL QURAN": 50, "HADITS": 55, "AQIDAH": 65, "AKHLAQ": 45, "FIQIH": 85, "TARIKH": 40, "B. ARAB": 95 }
+        },
+        {
+          nama: "REFA AMELIA",
+          rataRata: 52.9,
+          nilai: { "AL QURAN": 65, "HADITS": 60, "AQIDAH": 55, "AKHLAQ": 25, "FIQIH": 50, "TARIKH": 25, "B. ARAB": 90 }
+        }
+      ];
+
+      // ======================================================================
+      // FUNGSI PENGOLAHAN DATA & FORMATTER
+      // ======================================================================
+
+      /**
+       * Memformat angka ke format Indonesia (koma sebagai pemisah desimal).
+       */
+      function formatNumberID(num, decimals) {
+        if (typeof num !== "number" || Number.isNaN(num)) {
+          return "-";
+        }
+        return num.toFixed(decimals).replace(".", ",");
+      }
+
+      /**
+       * Menghitung rata-rata nilai seluruh peserta yang memiliki nilai valid per mata pelajaran.
+       */
+      function computeSubjectAverages(database) {
+        const averages = {};
+        SUBJECT_LIST.forEach(function (subj) {
+          let sum = 0;
+          let count = 0;
+          database.forEach(function (student) {
+            const val = student.nilai[subj.key];
+            if (typeof val === "number" && !Number.isNaN(val)) {
+              sum += val;
+              count += 1;
+            }
+          });
+          averages[subj.key] = count > 0 ? sum / count : null;
+        });
+        return averages;
+      }
+
+      /**
+       * Menghitung peringkat 10 besar dari seluruh peserta dalam database.
+       * Menggunakan competition ranking (1, 2, 2, 4) bila nilai rata-rata sama,
+       * serta urutan alfabetis nama peserta untuk tie-breaker tampilan.
+       */
+      function computeTop10(database) {
+        const validStudents = database.filter(function (student) {
+          const allSubjectsValid = SUBJECT_LIST.every(function (subj) {
+            const v = student.nilai[subj.key];
+            return typeof v === "number" && !Number.isNaN(v);
+          });
+          return allSubjectsValid && typeof student.rataRata === "number" && !Number.isNaN(student.rataRata);
+        });
+
+        const sorted = validStudents.slice().sort(function (a, b) {
+          if (b.rataRata !== a.rataRata) {
+            return b.rataRata - a.rataRata;
+          }
+          return a.nama.localeCompare(b.nama, "id");
+        });
+
+        const ranked = [];
+        for (let i = 0; i < sorted.length; i++) {
+          let compRank = i + 1;
+          if (i > 0 && sorted[i].rataRata === sorted[i - 1].rataRata) {
+            compRank = ranked[i - 1].rank;
+          }
+          ranked.push({
+            rank: compRank,
+            nama: sorted[i].nama,
+            rataRata: sorted[i].rataRata
+          });
+        }
+
+        return ranked.slice(0, 10);
+      }
+
+      const SUBJECT_AVERAGES = computeSubjectAverages(RAW_DATABASE);
+      const TOP_10_LIST = computeTop10(RAW_DATABASE);
+
+      // ======================================================================
+      // REFERENSI ELEMEN DOM
+      // ======================================================================
+      const searchForm = document.getElementById("search-form");
+      const searchInput = document.getElementById("student-search-input");
+      const searchResetBtn = document.getElementById("search-reset-btn");
+      const matchesContainer = document.getElementById("matches-container");
+      const matchesHeader = document.getElementById("matches-header");
+      const matchesList = document.getElementById("matches-list");
+      const searchMessage = document.getElementById("search-message");
+
+      const reportCard = document.getElementById("report-card");
+      const printBtn = document.getElementById("print-btn");
+      const resetBtn = document.getElementById("reset-btn");
+
+      const reportStudentName = document.getElementById("report-student-name");
+      const scoresTbody = document.getElementById("scores-tbody");
+      const averageSummaryBox = document.getElementById("average-summary-box");
+      const reportStudentAvg = document.getElementById("report-student-avg");
+      const reportStatusBadge = document.getElementById("report-status-badge");
+      const reportIncompleteNote = document.getElementById("report-incomplete-note");
+      const motivationTextEl = document.getElementById("motivation-text");
+      const motivationSourceEl = document.getElementById("motivation-source");
+      const top10Grid = document.getElementById("top10-grid");
+      const printDateEl = document.getElementById("print-date");
+
+      // ======================================================================
+      // FUNGSI TAMPILAN UI
+      // ======================================================================
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function showMessage(text, type) {
+        searchMessage.textContent = text;
+        searchMessage.className = "message-box " + (type === "error" ? "message-error" : "message-info");
+        searchMessage.classList.remove("hidden");
+      }
+
+      function hideMessage() {
+        searchMessage.classList.add("hidden");
+        searchMessage.textContent = "";
+      }
+
+      function hideMatches() {
+        matchesContainer.classList.add("hidden");
+        matchesList.innerHTML = "";
+      }
+
+      function updateMotivationQuote() {
+        const idx = Math.floor(Math.random() * MOTIVATION_QUOTES.length);
+        const item = MOTIVATION_QUOTES[idx];
+        motivationTextEl.textContent = item.quote;
+        if (item.source) {
+          motivationSourceEl.textContent = item.source;
+          motivationSourceEl.classList.remove("hidden");
+        } else {
+          motivationSourceEl.textContent = "";
+          motivationSourceEl.classList.add("hidden");
+        }
+      }
+
+      function updatePrintTimestamp() {
+        const now = new Date();
+        const options = {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        };
+        printDateEl.textContent = now.toLocaleDateString("id-ID", options) + " WIB";
+      }
+
+      /**
+       * Merender kartu kecil peringkat 10 besar di bagian paling bawah laporan.
+       */
+      function renderTop10Grid() {
+        top10Grid.innerHTML = "";
+        TOP_10_LIST.forEach(function (item) {
+          const card = document.createElement("div");
+          let rankClass = "";
+          if (item.rank === 1) rankClass = " rank-1";
+          else if (item.rank === 2) rankClass = " rank-2";
+          else if (item.rank === 3) rankClass = " rank-3";
+
+          card.className = "rank-mini-card" + rankClass;
+
+          const avgFormatted = formatNumberID(item.rataRata, 1);
+
+          card.innerHTML =
+            '<div class="rank-mini-top">' +
+              '<span class="rank-badge">#' + item.rank + '</span>' +
+              '<span class="rank-mini-score">' + avgFormatted + '</span>' +
+            '</div>' +
+            '<div class="rank-mini-name">' + escapeHtml(item.nama) + '</div>';
+
+          top10Grid.appendChild(card);
+        });
+      }
+
+      /**
+       * Menampilkan laporan hasil nilai lengkap peserta yang dipilih.
+       */
+      function renderStudentReport(student) {
+        hideMatches();
+        hideMessage();
+
+        // Identitas Peserta
+        reportStudentName.textContent = student.nama;
+
+        // Tabel 7 Mata Pelajaran
+        scoresTbody.innerHTML = "";
+        const missingSubjects = [];
+
+        SUBJECT_LIST.forEach(function (subj, idx) {
+          const scoreVal = student.nilai[subj.key];
+          const avgVal = SUBJECT_AVERAGES[subj.key];
+
+          const isScoreValid = typeof scoreVal === "number" && !Number.isNaN(scoreVal);
+          if (!isScoreValid) {
+            missingSubjects.push(subj.label);
+          }
+
+          let scoreCellHtml = '<span class="score-empty-text">Belum ada nilai</span>';
+          if (isScoreValid) {
+            const scoreColorClass = scoreVal >= KKM_THRESHOLD ? "val-pass" : "val-fail";
+            scoreCellHtml =
+              '<span class="score-num-bold ' + scoreColorClass + '">' +
+                formatNumberID(scoreVal, 1) +
+              '</span>';
+          }
+
+          let avgCellHtml = "-";
+          if (typeof avgVal === "number" && !Number.isNaN(avgVal)) {
+            const avgColorClass = avgVal >= KKM_THRESHOLD ? "val-pass" : "val-fail";
+            avgCellHtml =
+              '<span class="' + avgColorClass + '">' +
+                formatNumberID(avgVal, 1) +
+              '</span>';
+          }
+
+          const tr = document.createElement("tr");
+          tr.innerHTML =
+            '<td class="cell-nomor">' + (idx + 1) + '</td>' +
+            '<td class="cell-mapel">' + escapeHtml(subj.label) + '</td>' +
+            '<td class="cell-nilai">' + scoreCellHtml + '</td>' +
+            '<td class="cell-rata-mapel">' + avgCellHtml + '</td>';
+
+          scoresTbody.appendChild(tr);
+        });
+
+        // Kartu Rata-Rata Nilai Peserta & Status Kelulusan (Batas 57,5)
+        averageSummaryBox.className = "average-summary-card";
+        reportStudentAvg.className = "avg-big-number";
+        reportStatusBadge.className = "avg-status-badge";
+        reportIncompleteNote.classList.add("hidden");
+        reportIncompleteNote.textContent = "";
+
+        if (missingSubjects.length > 0) {
+          averageSummaryBox.classList.add("status-incomplete-box");
+          reportStudentAvg.classList.add("num-incomplete");
+          reportStudentAvg.textContent = "Belum Dapat Ditentukan";
+
+          reportStatusBadge.classList.add("badge-incomplete");
+          reportStatusBadge.textContent = "Data Nilai Tidak Lengkap";
+
+          reportIncompleteNote.textContent =
+            "Mata pelajaran tanpa nilai: " + missingSubjects.join(", ") +
+            ". Rata-rata dan status kelulusan belum dapat ditentukan.";
+          reportIncompleteNote.classList.remove("hidden");
+        } else {
+          // Gunakan nilai rata-rata asli dari database jika tersedia; jika tidak, hitung dari 7 mapel
+          let finalAvg = student.rataRata;
+          if (typeof finalAvg !== "number" || Number.isNaN(finalAvg)) {
+            let total = 0;
+            SUBJECT_LIST.forEach(function (subj) {
+              total += student.nilai[subj.key];
+            });
+            finalAvg = total / SUBJECT_LIST.length;
+          }
+
+          // Bandingkan langsung tanpa pembulatan dengan batas 57,5
+          const isPass = finalAvg >= KKM_THRESHOLD;
+
+          reportStudentAvg.textContent = formatNumberID(finalAvg, 1);
+
+          if (isPass) {
+            averageSummaryBox.classList.add("status-pass-box");
+            reportStudentAvg.classList.add("num-pass");
+            reportStatusBadge.classList.add("badge-pass");
+            reportStatusBadge.textContent = "Memenuhi Batas Minimal Kelulusan";
+          } else {
+            averageSummaryBox.classList.add("status-fail-box");
+            reportStudentAvg.classList.add("num-fail");
+            reportStatusBadge.classList.add("badge-fail");
+            reportStatusBadge.textContent = "Belum Memenuhi Batas Minimal Kelulusan";
+          }
+        }
+
+        // Motivasi & Peringkat 10 Besar
+        updateMotivationQuote();
+        renderTop10Grid();
+
+        // Tampilkan laporan
+        reportCard.classList.remove("hidden");
+        reportCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      /**
+       * Menjalankan pencarian nama peserta (sebagian nama & tidak peka huruf besar/kecil).
+       */
+      function executeSearch(rawQuery) {
+        const query = rawQuery.trim().toLowerCase();
+
+        hideMatches();
+        hideMessage();
+
+        if (!query) {
+          reportCard.classList.add("hidden");
+          showMessage("Silakan masukkan nama peserta terlebih dahulu.", "info");
+          searchInput.focus();
+          return;
+        }
+
+        if (!Array.isArray(RAW_DATABASE) || RAW_DATABASE.length === 0) {
+          reportCard.classList.add("hidden");
+          showMessage("Database nilai peserta tidak tersedia atau belum terhubung.", "error");
+          return;
+        }
+
+        const matchedStudents = RAW_DATABASE.filter(function (student) {
+          return student.nama.toLowerCase().includes(query);
+        });
+
+        if (matchedStudents.length === 0) {
+          reportCard.classList.add("hidden");
+          showMessage("Nama peserta tidak ditemukan. Silakan periksa kembali nama yang dimasukkan.", "error");
+          return;
+        }
+
+        if (matchedStudents.length === 1) {
+          renderStudentReport(matchedStudents[0]);
+          return;
+        }
+
+        // Jika ditemukan beberapa nama yang mirip, tampilkan daftar pilihan
+        reportCard.classList.add("hidden");
+        matchesHeader.textContent =
+          "Ditemukan " + matchedStudents.length + " peserta. Silakan pilih peserta yang benar:";
+        matchesList.innerHTML = "";
+
+        matchedStudents.forEach(function (student) {
+          const li = document.createElement("li");
+          li.className = "match-item";
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "match-btn";
+          btn.innerHTML =
+            '<span>' + escapeHtml(student.nama) + '</span>' +
+            '<span class="match-action-label">Pilih Peserta &rarr;</span>';
+
+          btn.addEventListener("click", function () {
+            searchInput.value = student.nama;
+            renderStudentReport(student);
+          });
+
+          li.appendChild(btn);
+          matchesList.appendChild(li);
+        });
+
+        matchesContainer.classList.remove("hidden");
+      }
+
+      /**
+       * Membersihkan pencarian dan kembali ke tampilan awal halaman utama.
+       */
+      function resetSearchState() {
+        searchInput.value = "";
+        hideMatches();
+        hideMessage();
+        reportCard.classList.add("hidden");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        searchInput.focus();
+      }
+
+      // ======================================================================
+      // EVENT LISTENERS
+      // ======================================================================
+
+      searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        executeSearch(searchInput.value);
+      });
+
+      // Pencarian langsung saat mengetik minimal 2 karakter
+      let typingTimer = null;
+      searchInput.addEventListener("input", function () {
+        clearTimeout(typingTimer);
+        const val = searchInput.value.trim();
+
+        if (val.length === 0) {
+          hideMatches();
+          hideMessage();
+          return;
+        }
+
+        if (val.length >= 2) {
+          typingTimer = setTimeout(function () {
+            const q = val.toLowerCase();
+            const matches = RAW_DATABASE.filter(function (s) {
+              return s.nama.toLowerCase().includes(q);
+            });
+
+            hideMessage();
+
+            if (matches.length === 0) {
+              hideMatches();
+              showMessage("Nama peserta tidak ditemukan. Silakan periksa kembali nama yang dimasukkan.", "error");
+            } else {
+              matchesHeader.textContent =
+                "Ditemukan " + matches.length + " peserta. Silakan pilih peserta yang benar:";
+              matchesList.innerHTML = "";
+              matches.forEach(function (student) {
+                const li = document.createElement("li");
+                li.className = "match-item";
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "match-btn";
+                btn.innerHTML =
+                  '<span>' + escapeHtml(student.nama) + '</span>' +
+                  '<span class="match-action-label">Pilih Peserta &rarr;</span>';
+                btn.addEventListener("click", function () {
+                  searchInput.value = student.nama;
+                  renderStudentReport(student);
+                });
+                li.appendChild(btn);
+                matchesList.appendChild(li);
+              });
+              matchesContainer.classList.remove("hidden");
+            }
+          }, 180);
+        }
+      });
+
+      searchResetBtn.addEventListener("click", resetSearchState);
+      resetBtn.addEventListener("click", resetSearchState);
+
+      printBtn.addEventListener("click", function () {
+        updatePrintTimestamp();
+        window.print();
+      });
+    })();
+  </script>
+</body>
+</html>
